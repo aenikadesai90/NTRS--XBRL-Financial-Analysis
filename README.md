@@ -2,7 +2,7 @@
 
 
 
-Overview
+## Overview
 
 Using Python, I sourced SEC EDGAR's XBRL Financial Statement Data Sets (4 raw `.txt` files — `tag`, `num`, `pre`, `sub`) for **Northern Trust Corporation (NTRS)** from Kaggle. The raw data contained **1,200+ entries spanning multiple fiscal years**, which required a proper big-data handling approach rather than just loading everything into memory at once.
 
@@ -10,13 +10,13 @@ The entire pipeline is built in Python converting raw tab-separated files into C
 
 
 
- Why SQLite Instead of Just Pandas?
+## Why SQLite Instead of Just Pandas?
 
 The raw `num.txt` file alone contains hundreds of thousands of rows across all SEC filers. Loading it directly into a dataframe would consume significant memory and slow everything down. By converting to CSV in chunks first, then loading into SQLite, I could run fast SQL queries to filter just Northern Trust's records before ever pulling data into Pandas keeping memory usage low and the pipeline scalable.
 
 
 
- Project Structure
+ ## Project Structure
 
 
 PROJECT DATA/
@@ -43,7 +43,7 @@ PROJECT DATA/
 
 
 
-Pipeline — Step by Step
+## Pipeline — Step by Step
 
 Step 1 — Raw TSV → CSV
 - Reads `.txt` tab-separated source files in **chunks** (memory-efficient)
@@ -80,7 +80,7 @@ Step 6 — Inferential Statistics & Plots
 
 
 
-Skills & Tools Used
+## Skills & Tools Used
 
 | Category | Tools |
 |----------|-------|
@@ -95,7 +95,7 @@ Skills & Tools Used
 
 
 
- Data Source
+## Data Source
 
 - **SEC EDGAR — Financial Statement Data Sets**
 - Available on [Kaggle](https://www.kaggle.com/) and directly from [SEC.gov](https://www.sec.gov/dera/data/financial-statements)
@@ -103,7 +103,7 @@ Skills & Tools Used
 
 
 
-Key Takeaways
+## Key Takeaways
 
 - Demonstrates handling of **real-world messy financial filings** (duplicates, amendments, segment splits)
 - Uses **SQL + Python together** — not just Pandas — for scalable querying on large datasets
