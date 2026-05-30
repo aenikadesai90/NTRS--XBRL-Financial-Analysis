@@ -43,29 +43,29 @@ PROJECT DATA/
 
 ## Pipeline — Step by Step
 
-Step 1 — Raw TSV → CSV
+Step 1  Raw TSV → CSV
 - Reads `.txt` tab-separated source files in **chunks** (memory-efficient)
 - Writes clean `.csv` files to the `csv/` folder
 
- Step 2 — Load into SQLite
+ Step 2  Load into SQLite
 - Loads all 4 CSV files into a single **SQLite database** (`master.sqlite`)
 - Enables fast SQL queries without loading full tables into memory
 
- Step 3 — Filter for Northern Trust
+ Step 3  Filter for Northern Trust
 - Filters by `cik = 73124` (Northern Trust)
 - Merges `num + tag + pre + sub` into one master dataset via SQL joins
 
- Step 4 — Data Cleaning
+ Step 4  Data Cleaning
 - Removes segment-level rows (`segments IS NULL`)
 - Removes co-registrant rows (`coreg IS NULL`)
 - Filters to annual/point-in-time periods (`qtrs IN (0, 4)`)
 - Deduplicates by keeping the latest filed amendment per `(tag, version, ddate)`
 
-Step 5 — Descriptive Analysis & EDA
+Step 5  Descriptive Analysis & EDA
 - `.head()`, `.describe()`, `.info()`, `.isnull().sum()`
 - Null value audit across all columns
 
-Step 6 — Inferential Statistics & Plots
+Step 6  Inferential Statistics & Plots
 - **Normality test** on `log1p(|value|)` sample
 - **One-sample t-test** on trimmed value distribution
 - **Bootstrap confidence interval** for the mean of `value`
@@ -73,7 +73,7 @@ Step 6 — Inferential Statistics & Plots
 - **Correlation matrix** across numeric columns in `sub`
 - **Histogram** of reported financial magnitudes
 
- Step 7 — Export
+ Step 7  Export
 - Exports separate Excel workbooks per year to `excel/`
 
 
@@ -95,7 +95,7 @@ Step 6 — Inferential Statistics & Plots
 
 ## Data Source
 
-- **SEC EDGAR — Financial Statement Data Sets**
+- **SEC EDGAR  Financial Statement Data Sets**
 - Available on [Kaggle](https://www.kaggle.com/) and directly from [SEC.gov](https://www.sec.gov/dera/data/financial-statements)
 - All data is **publicly available** under SEC open data policy
 
@@ -104,7 +104,7 @@ Step 6 — Inferential Statistics & Plots
 ## Key Takeaways
 
 - Demonstrates handling of **real-world messy financial filings** (duplicates, amendments, segment splits)
-- Uses **SQL + Python together** — not just Pandas — for scalable querying on large datasets
+- Uses **SQL + Python together**  not just Pandas for scalable querying on large datasets
 - Applies **inferential statistics** to validate data quality and distributions
 - Produces **analysis-ready Excel outputs** for financial modeling
 
