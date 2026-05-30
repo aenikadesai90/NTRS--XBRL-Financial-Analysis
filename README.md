@@ -18,13 +18,13 @@ The raw `num.txt` file alone contains hundreds of thousands of rows across all S
 
  ## Project Structure
 
-
+```
 PROJECT DATA/
 ├── NTRS Data/
-│   ├── num.txt        ← Raw XBRL numerical values
-│   ├── pre.txt        ← Presentation map
-│   ├── sub.txt        ← Company/submission identity
-│   └── tag.txt        ← Tag definitions
+│   ├── num.txt              ← Raw XBRL numerical values
+│   ├── pre.txt              ← Presentation map
+│   ├── sub.txt              ← Company/submission identity
+│   └── tag.txt              ← Tag definitions
 ├── csv/
 │   ├── num.csv
 │   ├── pre.csv
@@ -34,14 +34,12 @@ PROJECT DATA/
 │   ├── Northern_Trust_2024_Final.xlsx
 │   ├── Northern_Trust_2025_Final.xlsx
 │   └── Northern_Trust_Final_Output.xlsx
-├── main.ipynb                      ← Main analysis notebook
-├── master.sqlite                   ← SQLite database
+├── main.ipynb               ← Main analysis notebook
+├── master.sqlite            ← SQLite database
 ├── NTRS_Raw_Data_Proof.csv
 ├── requirements.txt
 └── data_details.txt
-
-
-
+```
 
 ## Pipeline — Step by Step
 
