@@ -1,0 +1,26 @@
+# DATA ACQUISITION & SEC PARSING
+edgartools
+pandas
+requests
+lxml
+
+# DATA ENGINEERING & SQL
+SQLAlchemy
+mysql-connector-python
+pyodbc
+
+# QUANTITATIVE ANALYSIS & RISK
+numpy
+scipy
+scikit-learn
+pandas-datareader
+
+# VISUALIZATION
+matplotlib
+seaborn
+plotly
+openpyxl
+
+# PERFORMANCE (FOR BIG DATA)
+joblib
+tqdm
