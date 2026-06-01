@@ -6,7 +6,7 @@ https://nbviewer.org/github/aenikadesai90/NTRS--XBRL-Financial-Analysis/blob/mai
 ## Download Full Dataset
 The raw data files are large and stored on Google Drive.
 Download the complete project folder here:
-(#)https://drive.google.com/drive/folders/1gi90ODSOXtmuDvLxT1TIfGWiySeg8WXN?usp=sharing
+https://drive.google.com/drive/folders/1gi90ODSOXtmuDvLxT1TIfGWiySeg8WXN?usp=sharing
 
 ## Overview
 
