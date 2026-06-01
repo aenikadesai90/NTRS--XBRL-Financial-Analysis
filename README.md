@@ -3,6 +3,11 @@
 ## View Notebook
 https://nbviewer.org/github/aenikadesai90/NTRS--XBRL-Financial-Analysis/blob/main/main.ipynb
 
+## Download Full Dataset
+The raw data files are large and stored on Google Drive.
+Download the complete project folder here:
+(#)https://drive.google.com/drive/folders/1gi90ODSOXtmuDvLxT1TIfGWiySeg8WXN?usp=sharing
+
 ## Overview
 
 Using Python, I sourced SEC EDGAR's XBRL Financial Statement Data Sets (4 raw `.txt` files — `tag`, `num`, `pre`, `sub`) for **Northern Trust Corporation (NTRS)** from Kaggle. The raw data contained **1,200+ entries spanning multiple fiscal years**, which required a proper big-data handling approach rather than just loading everything into memory at once.
