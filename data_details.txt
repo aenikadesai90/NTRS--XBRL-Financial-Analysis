@@ -1,0 +1,37 @@
+To help you understand how these SEC files function together from a "Big Data" perspective, here is a detailed breakdown of the definitions and the technical logic for each file.
+
+1. SUB (Submissions)
+Definition: This is the "ID Card" file. It contains one row for every report (10-K, 10-Q, etc.) filed with the SEC.
+
+The Key (adsh): This stands for "Accession Number." It is the unique 20-digit ID assigned to every single document.
+
+Role in Project: You use this to find Northern Trust. Once you find Northern Trust's row in this file, you grab its adsh. You then use that ID to find all its numbers in the other files.
+
+Essential Columns: adsh, cik (Company ID), name, sic (Industry Code), and fye (Fiscal Year End).
+
+2. NUM (Numbers)
+Definition: This is the "Vault." It is by far the largest file and contains every single dollar amount reported in the financial statements.
+
+The Logic: It doesn't contain company names—it only contains IDs. Every row is a single "fact" (e.g., "Company X's Assets on 12/31/2025 were $50 Billion").
+
+Role in Project: This is where you pull the $8.1B Revenue and $1.7B Net Income data. You filter this file by the adsh you got from the SUB file.
+
+Essential Columns: adsh, tag (Account Name), value (The Amount), ddate (The Date), and uom (Units, e.g., USD).
+
+3. TAG (Tags)
+Definition: This is the "Dictionary." It defines what the accounting terms in the NUM file actually mean.
+
+The Logic: Accounting terms can be complex (e.g., NetInterestIncome). This file provides the human-readable label and the technical definition of that term according to US-GAAP standards.
+
+Role in Project: You link this to the NUM file so you can see that the tag RevenuesNetInterestIncome actually means "Net Interest Income."
+
+Essential Columns: tag, version, tlabel (The Title), and doc (The Definition).
+
+4. PRE (Presentation)
+Definition: This is the "Map." It tells you how to arrange the numbers so they look like a real financial statement.
+
+The Logic: In a 10-K, a number might appear on the Balance Sheet (Statement 002) or the Income Statement (Statement 003). This file tells you which "Report" and which "Line Number" the data belongs to.
+
+Role in Project: If you want to recreate the Income Statement you found in the 10-K PDF, you use this file to sort the tags in the correct order (Revenue first, then Expenses, then Profit).
+
+Essential Columns: adsh, report (Statement Number), line (Row Number), and tag.
